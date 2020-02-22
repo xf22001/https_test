@@ -207,6 +207,7 @@ error:
 
     http_close(&hi1);
     http_close(&hi2);
+    p_mem_info();
 
     return 0;
 }
