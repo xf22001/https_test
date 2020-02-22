@@ -6,7 +6,7 @@
 #   文件名称：mbedtls.mk
 #   创 建 者：肖飞
 #   创建日期：2019年09月20日 星期五 12时53分39秒
-#   修改日期：2020年01月30日 星期四 10时03分34秒
+#   修改日期：2020年02月22日 星期六 14时47分04秒
 #   描    述：
 #
 #================================================================
@@ -93,6 +93,7 @@ c_files := $(common_c_files)
 c_files += main.c
 c_files += https.c
 c_files += net_sockets.c
+c_files += memory.c
 app_name := https_client
 LOCAL_CFLAGS := $(common_c_flags) -g
 LOCAL_LDFLAGS := -Wl,-Map,main.map

@@ -3,6 +3,19 @@
 #include "https.h"
 #include <stdlib.h>
 
+void *calloc_1(size_t nmemb, size_t size);
+void free_1(void *ptr);
+static void *my_calloc(size_t nmemb, size_t size)
+{
+	void *ptr = calloc_1(nmemb, size);
+
+	return ptr;
+}
+
+static my_free(void *ptr)
+{
+	free_1(ptr);
+}
 
 int main(int argc, char *argv[])
 {
@@ -12,7 +25,8 @@ int main(int argc, char *argv[])
 
     HTTP_INFO hi1, hi2;
 
-    mbedtls_platform_set_calloc_free(calloc, free);
+    //mbedtls_platform_set_calloc_free(calloc, free);
+    mbedtls_platform_set_calloc_free(calloc_1, free_1);
 
     // Init http session. verify: check the server CA cert.
     http_init(&hi1, FALSE);
